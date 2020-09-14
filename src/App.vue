@@ -1,18 +1,73 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <ReviewForm @add:review='addReview' :comp="comp" />
+
+   <reviews :res="res" :comp='comp' :key="comp" />
+ 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import { uuid } from 'vue-uuid'
+import ReviewForm from '@/components/ReviewForm'
+import Reviews from '@/components/Reviews'
+import db from "./firebaseinit"
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ReviewForm,
+    Reviews
+    
+  },
+  data(){
+    return{
+      
+      res:[],
+      comp : false
+      
+
+    }
+  },
+  //get data from database on mount
+  created(){ 
+    db.collection('reviews').orderBy('timestamp','desc').get().then(
+      results => {
+      
+        let newres = results.docs.slice(0,3)
+       console.log('mount----------- results',newres)
+        this.res= [...newres]
+       
+      
+      }
+      
+    ).catch(
+      err => console.log(err)
+
+    )
+  },
+  // get data from databse everytime form submitted
+ 
+  //when form is submitted send review object to databse 
+  methods :{
+    addReview(review){
+     try{
+      this.comp=true
+       db.collection('reviews').doc(`${uuid.v1()}`).set({
+        ...review
+      }).then(console.log('sent--'), this.count += 1)
+      .catch(err => console.log(err))
+
+  
+     }catch(err){
+      console.log(err)
+     }
+    }
+  },
+  
+
+
+ 
 }
 </script>
 
