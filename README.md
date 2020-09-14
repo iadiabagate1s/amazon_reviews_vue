@@ -1,4 +1,9 @@
-# dose_review_vue
+### dose_review_vue
+this is the vue solution 
+https://dosemedia-reviews.web.app/
+
+#heres the link tot he react solution repository
+https://github.com/iadiabagate1s/amazon_reviews
 
 ## Project setup
 ```
