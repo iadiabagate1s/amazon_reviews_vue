@@ -1,9 +1,18 @@
-### dose_review_vue
-this is the vue solution 
+## Dose_Assignment Vue Framework
+
+Live Link:
 https://dosemedia-reviews.web.app/
 
-#heres the link tot he react solution repository
+## Link to Dose_Assignment React Framework repository
+
+repository Link:
 https://github.com/iadiabagate1s/amazon_reviews
+Live Link:
+https://dosefinal-assignment.firebaseapp.com/
+
+
+
+
 
 ## Project setup
 ```
