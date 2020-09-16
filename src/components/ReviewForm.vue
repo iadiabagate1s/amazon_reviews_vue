@@ -79,7 +79,7 @@ export default {
         this.review.rating = null
         this.review.variation = null
         this.review.review = null
-        this.reloadPage()
+        
         return 
         
       }

@@ -14,7 +14,7 @@
     >
     <b-card-title class="cardtitle">
        
-        <span v-for=' n in rev.data().rating' :key="n">
+        <span v-for=' n in Array.from({length:parseInt(rev.data().rating)})' :key="n">
          <b-icon icon='star-fill' variant='success'></b-icon>
         </span>
         </b-card-title>
